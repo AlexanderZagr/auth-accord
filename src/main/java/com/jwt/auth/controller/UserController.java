@@ -24,11 +24,6 @@ public class UserController {
         return new ApiResponse<>(HttpStatus.OK.value(), "User saved successfully.",userService.save(user));
     }
 
-    @GetMapping
-    public ApiResponse<List<User>> listUser(){
-        return new ApiResponse<>(HttpStatus.OK.value(), "User list fetched successfully.",userService.findAll());
-    }
-
     @GetMapping("/{id}")
     public ApiResponse<User> getOne(@PathVariable int id){
         return new ApiResponse<>(HttpStatus.OK.value(), "User fetched successfully.",userService.findById(id));
