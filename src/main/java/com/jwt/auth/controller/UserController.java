@@ -19,9 +19,9 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping
-    public ApiResponse<User> saveUser(@RequestBody UserDto user){
-        return new ApiResponse<>(HttpStatus.OK.value(), "User saved successfully.",userService.save(user));
+    @GetMapping
+    public ApiResponse<List<User>> listUser(){
+        return new ApiResponse<>(HttpStatus.OK.value(), "User list fetched successfully.",userService.findAll());
     }
 
     @GetMapping("/{id}")
